@@ -44,6 +44,20 @@
   --ok:#2f9e52;
   --erro:#e05248;
 
+  /* botão de ação */
+  --btn:#1c9a4c;
+  --btn-claro:#20a550;
+  --btn-escuro:#177f3e;
+  --btn-base:#0f5c2c;
+  --btn-txt:#ffffff;
+
+  /* botão de ação */
+  --btn:#1c9a4c;
+  --btn-claro:#20a550;
+  --btn-escuro:#177f3e;
+  --btn-base:#0f5c2c;
+  --btn-txt:#ffffff;
+
   --display:"Barlow Condensed","Arial Narrow",Impact,sans-serif;
   --corpo:"Source Sans 3",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
 
@@ -187,21 +201,21 @@ p{margin-bottom:1em;color:var(--tinta-2);max-width:64ch}
 .cta{
   display:flex;align-items:center;justify-content:center;gap:11px;
   width:100%;max-width:520px;
-  background:linear-gradient(180deg,#ffd542,var(--amarelo) 52%,var(--amarelo-2));
-  color:#241c00;text-decoration:none;text-align:center;
+  background:linear-gradient(180deg,var(--btn-claro),var(--btn) 52%,var(--btn-escuro));
+  color:var(--btn-txt);text-decoration:none;text-align:center;
   font-family:var(--display);font-weight:800;text-transform:uppercase;
   font-size:clamp(1.06rem,2.7vw,1.32rem);letter-spacing:.02em;
   padding:clamp(17px,2.6vw,21px) clamp(20px,3vw,26px);
   border-radius:12px;border:0;cursor:pointer;
-  box-shadow:0 6px 0 #b8890a,0 14px 28px rgba(0,0,0,.26);
+  box-shadow:0 6px 0 var(--btn-base),0 14px 28px rgba(0,0,0,.26);
   transition:transform .13s ease,box-shadow .13s ease,filter .13s ease;
   position:relative;overflow:hidden;
 }
 .centro .cta,.cta--centro{margin-inline:auto}
 .cta .ico{width:1.05em;height:1.05em;stroke-width:2.6}
 .cta .curto{display:none}
-.cta:hover{transform:translateY(2px);box-shadow:0 4px 0 #b8890a,0 10px 20px rgba(0,0,0,.26);filter:brightness(1.04)}
-.cta:active{transform:translateY(6px);box-shadow:0 0 0 #b8890a}
+.cta:hover{transform:translateY(2px);box-shadow:0 4px 0 var(--btn-base),0 10px 20px rgba(0,0,0,.26);filter:brightness(1.06)}
+.cta:active{transform:translateY(6px);box-shadow:0 0 0 var(--btn-base)}
 .cta:focus-visible{outline:3px solid #fff;outline-offset:3px}
 /* brilho que atravessa o botão */
 .cta::after{
@@ -420,7 +434,7 @@ footer strong{color:#c3cce3}
   display:block;font-family:var(--display);font-size:1.32rem;color:var(--amarelo);
   font-weight:800;line-height:1;
 }
-.barra .cta{width:auto;max-width:none;flex:none;font-size:.94rem;padding:14px 19px;min-height:48px;border-radius:10px;box-shadow:0 4px 0 #b8890a}
+.barra .cta{width:auto;max-width:none;flex:none;font-size:.94rem;padding:14px 19px;min-height:48px;border-radius:10px;box-shadow:0 4px 0 var(--btn-base)}
 .barra .cta::after{display:none}
 .barra .cta .ico{display:none}
 @media (min-width:560px){.barra .cta .ico{display:block}}
