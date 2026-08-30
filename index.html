@@ -66,6 +66,7 @@ body{
   font-size:clamp(16px,.55vw + 15px,17.5px);
   line-height:1.62;
   overflow-x:hidden;
+  overflow-wrap:break-word;
   text-rendering:optimizeLegibility;
 }
 img,svg{max-width:100%;display:block}
@@ -133,8 +134,8 @@ p{margin-bottom:1em;color:var(--tinta-2);max-width:64ch}
 
 /* coluna única centrada: headline > mockup > preço > CTA > resto */
 .hero .wrap{display:flex;flex-direction:column;align-items:center;text-align:center}
-.hero-cab{max-width:22ch}
-.hero-img{width:100%;max-width:min(100%,720px);margin:clamp(20px,3.4vw,30px) 0 clamp(18px,3vw,26px)}
+.hero-cab{max-width:20ch;margin-bottom:clamp(14px,2.6vw,20px)}
+.hero-img{width:100%;max-width:min(100%,720px);margin:0 0 clamp(20px,3.4vw,28px)}
 .hero-resto{max-width:60ch;margin-top:clamp(26px,4vw,38px);padding-top:clamp(22px,3.4vw,30px);border-top:1px solid rgba(255,255,255,.13)}
 
 .hero h1{margin-bottom:.4em}
@@ -144,8 +145,8 @@ p{margin-bottom:1em;color:var(--tinta-2);max-width:64ch}
   padding:.02em .28em;border-radius:6px;
 }
 .hero-pergunta{
-  font-size:clamp(1.02rem,2.1vw,1.24rem);font-weight:600;color:#fff;
-  max-width:46ch;margin:0 auto;text-wrap:balance;
+  font-size:clamp(1.04rem,2.1vw,1.24rem);font-weight:600;color:#fff;
+  max-width:44ch;margin:0 auto 1em;text-wrap:balance;
 }
 .hero p{color:#c4cee4;max-width:56ch;margin-inline:auto}
 
@@ -155,7 +156,7 @@ p{margin-bottom:1em;color:var(--tinta-2);max-width:64ch}
   display:inline-flex;align-items:center;gap:8px;
   background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);
   border-radius:999px;padding:8px 15px 8px 8px;
-  font-size:.82rem;font-weight:600;color:#e6ebf7;white-space:nowrap;
+  font-size:.82rem;font-weight:600;color:#e6ebf7;
 }
 .pill i{width:25px;height:25px;border-radius:50%;display:grid;place-items:center;flex:none}
 .pill i .ico{width:14px;height:14px;color:#fff;stroke-width:2.3}
@@ -198,6 +199,7 @@ p{margin-bottom:1em;color:var(--tinta-2);max-width:64ch}
 }
 .centro .cta,.cta--centro{margin-inline:auto}
 .cta .ico{width:1.05em;height:1.05em;stroke-width:2.6}
+.cta .curto{display:none}
 .cta:hover{transform:translateY(2px);box-shadow:0 4px 0 #b8890a,0 10px 20px rgba(0,0,0,.26);filter:brightness(1.04)}
 .cta:active{transform:translateY(6px);box-shadow:0 0 0 #b8890a}
 .cta:focus-visible{outline:3px solid #fff;outline-offset:3px}
@@ -366,8 +368,8 @@ p{margin-bottom:1em;color:var(--tinta-2);max-width:64ch}
 details{background:var(--papel);border:1px solid var(--linha);border-radius:11px;overflow:hidden;transition:border-color .18s ease,box-shadow .18s ease}
 details[open]{border-color:var(--navy-2);box-shadow:var(--sombra)}
 summary{
-  cursor:pointer;list-style:none;display:flex;align-items:center;gap:13px;
-  padding:17px 18px;font-family:var(--display);font-size:1.12rem;font-weight:700;
+  cursor:pointer;list-style:none;display:flex;align-items:center;gap:12px;
+  padding:16px 16px;min-height:56px;font-family:var(--display);font-size:1.12rem;font-weight:700;
   text-transform:uppercase;color:var(--navy);line-height:1.22;
 }
 summary::-webkit-details-marker{display:none}
@@ -418,7 +420,7 @@ footer strong{color:#c3cce3}
   display:block;font-family:var(--display);font-size:1.32rem;color:var(--amarelo);
   font-weight:800;line-height:1;
 }
-.barra .cta{width:auto;max-width:none;flex:none;font-size:.94rem;padding:13px 19px;border-radius:10px;box-shadow:0 4px 0 #b8890a}
+.barra .cta{width:auto;max-width:none;flex:none;font-size:.94rem;padding:14px 19px;min-height:48px;border-radius:10px;box-shadow:0 4px 0 #b8890a}
 .barra .cta::after{display:none}
 .barra .cta .ico{display:none}
 @media (min-width:560px){.barra .cta .ico{display:block}}
@@ -451,15 +453,77 @@ body.com-barra{padding-bottom:88px}
 /* ============================================================
    AJUSTES FINOS DE RESPONSIVIDADE
    ============================================================ */
+/* ---- tablet e abaixo ---- */
+@media (max-width:640px){
+  :root{--pad-sec:clamp(44px,10vw,64px)}
+  /* o mockup é largo e denso: ganha a largura toda da tela */
+  .hero-img{
+    width:100vw;max-width:100vw;
+    margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);
+  }
+  .mockup img{border-radius:0;box-shadow:0 14px 32px rgba(0,0,0,.4)}
+  .mockup{animation:none}
+  .preco-cx{gap:14px}
+  .preco-lado{font-size:.84rem}
+  .cat-amostra span{font-size:.75rem;padding:3px 9px}
+  .sumario li{gap:11px}
+  .sumario li b{font-size:.99rem}
+  .prova ul{grid-template-columns:1fr 1fr;gap:11px 14px}
+  .prova li{font-size:.82rem;gap:9px}
+  .prova .ico{width:22px;height:22px}
+}
+
+/* ---- celulares ---- */
 @media (max-width:479px){
+  h1{font-size:clamp(2rem,8.6vw,2.7rem)}
+  .hero{padding-block:26px 40px}
+  .hero-cab{max-width:100%}
+  .hero-resto{margin-top:26px;padding-top:22px}
   .numeros{grid-template-columns:1fr;gap:9px}
-  .numeros div{display:flex;align-items:center;justify-content:center;gap:12px;padding:14px}
-  .num-grande{font-size:2rem}
-  .seta{gap:9px}
-  .seta em{font-size:.78rem;padding:4px 11px}
-  .faq-corpo{padding-left:18px}
+  .numeros div{display:flex;align-items:center;justify-content:center;gap:12px;padding:13px}
+  .num-grande{font-size:1.9rem}
+  .seta{gap:8px;padding:13px 15px}
+  .seta b{flex:1 1 100%;font-size:1.02rem}
+  .seta .ico{display:none}
+  .seta em{font-size:.77rem;padding:4px 11px}
+  .faq-corpo{padding:0 16px 16px}
+  summary{font-size:1.04rem}
   .etapas{gap:6px}
-  .etapa{padding:9px 15px;font-size:.88rem}
+  .etapa{padding:9px 14px;font-size:.86rem}
+  .etapas .sep .ico{width:16px;height:16px}
+  .lista li,.funcao,.cat,.opcao{border-radius:10px}
+  .lista li{padding:13px 15px;gap:11px}
+  .cat{padding:19px 17px}
+  .ico--bolha{width:42px;height:42px}
+  .cta{font-size:1.02rem;padding:16px 14px;gap:9px;line-height:1.15}
+  .cta .curto{display:inline}
+  .cta .longo{display:none}
+  .selos{gap:8px 15px}
+  .selos li{font-size:.85rem}
+  .prova ul{grid-template-columns:1fr}
+  .garantia{padding:22px 18px}
+  .sumario{padding:20px 16px}
+  .sumario-cab{gap:11px}
+}
+
+/* ---- celulares muito estreitos (320px) ---- */
+@media (max-width:359px){
+  .wrap{padding-inline:15px}
+  h1{font-size:1.85rem}
+  .preco{font-size:3rem}
+  .preco-cx{flex-direction:column;gap:10px}
+  .preco-lado{text-align:center}
+  .cta{font-size:.95rem;letter-spacing:0}
+  .barra .txt{font-size:.72rem}
+  .barra .txt b{font-size:1.12rem}
+  .barra .cta{font-size:.85rem;padding:12px 14px}
+  .pill{font-size:.78rem;padding:7px 12px 7px 7px}
+}
+
+/* ---- telas baixas: o hero não pode empurrar tudo para fora ---- */
+@media (max-height:560px) and (orientation:landscape){
+  .hero{padding-block:22px 32px}
+  .mockup{animation:none}
 }
 @media (min-width:900px){
   .sumario li .ico--bolha{width:40px;height:40px}
@@ -515,7 +579,6 @@ body.com-barra{padding-bottom:88px}
         100 <span class="lin2">Palavras-Chave</span>
         <span class="lin3">para a redação do ENEM</span>
       </h1>
-      <p class="hero-pergunta an an-2">Você sabe o que quer dizer na redação, mas trava na hora de encontrar as palavras certas?</p>
     </div>
 
     <!-- 2. MOCKUP -->
@@ -538,7 +601,7 @@ body.com-barra{padding-bottom:88px}
 
     <!-- 4. CTA -->
     <a class="cta an an-5" href="#comprar" data-checkout>
-      <svg class="ico"><use href="#i-carrinho"/></svg> Quero acessar as 100 palavras-chave
+      <svg class="ico"><use href="#i-carrinho"/></svg> <span class="longo">Quero acessar as 100 palavras-chave</span><span class="curto">Quero as 100 palavras-chave</span>
     </a>
 
     <ul class="selos selos--centro an an-5">
@@ -549,6 +612,7 @@ body.com-barra{padding-bottom:88px}
 
     <!-- 5. RESTO -->
     <div class="hero-resto an an-6">
+      <p class="hero-pergunta">Você sabe o que quer dizer na redação, mas trava na hora de encontrar as palavras certas?</p>
       <p class="lead">Tenha acesso a <strong>100 palavras-chave estratégicas</strong>, organizadas em 5 categorias para diferentes funções na construção dos seus argumentos.</p>
 
       <div class="pills">
