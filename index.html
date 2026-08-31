@@ -1037,6 +1037,17 @@ src="https://www.facebook.com/tr?id=1510260204450890&ev=PageView&noscript=1"
     } else if (a.getAttribute('href') === '#') {
       a.href = '#comprar';
     }
+
+    // avisa o Meta que a pessoa seguiu para o pagamento
+    a.addEventListener('click', function () {
+      if (typeof fbq === 'function' && CHECKOUT_URL) {
+        fbq('track', 'InitiateCheckout', {
+          content_name: '100 Palavras-Chave para a Redação do ENEM',
+          value: 10.00,
+          currency: 'BRL'
+        });
+      }
+    });
   });
 
   var menosMovimento = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
